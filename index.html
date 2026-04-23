@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2B.Marketing — The Growth Intelligence Hub for B2B Teams</title>
+<meta name="description" content="Data-driven B2B marketing strategies, tools, and insights for founders, CMOs, and growth teams. Join 12,000+ readers of the B2B Brief newsletter.">
+<meta name="keywords" content="b2b marketing, b2b lead generation, b2b content marketing, account based marketing, b2b seo, b2b email marketing">
+<meta property="og:title" content="B2B.Marketing — The Growth Intelligence Hub">
+<meta property="og:description" content="Data-driven strategies, tools, and insights for B2B marketers, founders, and growth teams.">
+<meta property="og:url" content="https://b2b.marketing">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://b2b.marketing">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0a0f2e;
+    --navy2: #111936;
+    --accent: #00e5a0;
+    --accent2: #0055ff;
+    --text: #e8ecf5;
+    --muted: #8892b0;
+    --card: #141c3a;
+    --border: rgba(255,255,255,0.08);
+    --gold: #ffd166;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--navy); color: var(--text); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+  h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10,15,46,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; text-decoration: none; }
+  .logo span { color: var(--text); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: var(--navy); padding: 0.5rem 1.25rem; border-radius: 6px; font-weight: 700; font-size: 0.85rem; text-decoration: none; font-family: 'Syne', sans-serif; }
+
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 7rem 2rem 4rem; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 900px; height: 600px; background: radial-gradient(ellipse, rgba(0,229,160,0.1) 0%, transparent 70%); pointer-events: none; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,229,160,0.1); border: 1px solid rgba(0,229,160,0.3); color: var(--accent); padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 500; margin-bottom: 2rem; animation: fadeUp 0.6s ease both; }
+  .hero-badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+  .hero h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -2px; animation: fadeUp 0.6s 0.1s ease both; }
+  .hero h1 .line2 { color: var(--accent); display: block; }
+  .hero-sub { max-width: 580px; color: var(--muted); font-size: 1.1rem; margin: 1.5rem auto 2.5rem; animation: fadeUp 0.6s 0.2s ease both; font-weight: 300; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.6s 0.3s ease both; }
+  .btn-primary { background: var(--accent); color: var(--navy); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700; font-family: 'Syne', sans-serif; font-size: 0.95rem; transition: transform 0.15s, opacity 0.15s; border: none; cursor: pointer; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+  .btn-secondary { background: transparent; color: var(--text); padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-family: 'Syne', sans-serif; font-size: 0.95rem; border: 1px solid var(--border); transition: border-color 0.2s; display: inline-block; }
+  .btn-secondary:hover { border-color: var(--accent); }
+  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; flex-wrap: wrap; justify-content: center; animation: fadeUp 0.6s 0.4s ease both; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 800; color: var(--accent); }
+  .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+
+  section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+  .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; letter-spacing: -1px; margin-bottom: 1rem; }
+  .section-sub { color: var(--muted); font-size: 1rem; max-width: 520px; font-weight: 300; }
+
+  .ad-strip { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; margin: 2rem auto; max-width: 1100px; flex-wrap: wrap; gap: 1rem; }
+  .ad-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); }
+  .ad-content { display: flex; align-items: center; gap: 1rem; }
+  .ad-badge { background: rgba(0,85,255,0.15); border: 1px solid rgba(0,85,255,0.3); color: #6fa8ff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }
+  .ad-text { font-size: 0.9rem; font-weight: 500; }
+  .ad-cta { background: var(--accent2); color: #fff; padding: 0.45rem 1rem; border-radius: 6px; font-size: 0.82rem; font-weight: 600; text-decoration: none; font-family: 'Syne', sans-serif; }
+
+  .content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .article-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; cursor: pointer; text-decoration: none; display: block; color: var(--text); }
+  .article-card:hover { transform: translateY(-4px); border-color: rgba(0,229,160,0.2); }
+  .article-img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+  .article-body { padding: 1.25rem; }
+  .article-tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
+  .article-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; line-height: 1.4; }
+  .article-body p { font-size: 0.85rem; color: var(--muted); }
+  .article-footer { display: flex; align-items: center; justify-content: space-between; padding: 0 1.25rem 1.25rem; font-size: 0.78rem; color: var(--muted); }
+
+  .lead-section { background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 3rem; text-align: center; position: relative; overflow: hidden; margin: 2rem 0; }
+  .lead-section h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 0.75rem; }
+  .lead-section p { color: var(--muted); max-width: 480px; margin: 0 auto 2rem; font-weight: 300; }
+  .email-form { display: flex; gap: 0.75rem; max-width: 460px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
+  .email-form input { flex: 1; min-width: 220px; padding: 0.85rem 1.25rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95rem; font-family: 'DM Sans', sans-serif; outline: none; transition: border-color 0.2s; }
+  .email-form input:focus { border-color: var(--accent); }
+  .email-form input::placeholder { color: var(--muted); }
+  .form-success { display: none; color: var(--accent); font-weight: 600; margin-top: 1rem; }
+
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  .tool-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; display: flex; gap: 1rem; align-items: flex-start; transition: border-color 0.2s; text-decoration: none; color: var(--text); }
+  .tool-card:hover { border-color: rgba(0,85,255,0.4); }
+  .tool-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(0,85,255,0.15); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+  .tool-info h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 3px; }
+  .tool-info p { font-size: 0.82rem; color: var(--muted); }
+  .tool-commission { font-size: 0.75rem; color: var(--accent); font-weight: 600; margin-top: 4px; }
+
+  .sponsor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  .sponsor-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; transition: border-color 0.2s; }
+  .sponsor-card:hover { border-color: rgba(255,209,102,0.4); }
+  .sponsor-tier { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold); font-weight: 600; }
+  .sponsor-card h4 { font-size: 1rem; font-weight: 700; }
+  .sponsor-price { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 800; color: var(--accent); }
+  .sponsor-price span { font-size: 0.8rem; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+  .sponsor-card ul { list-style: none; font-size: 0.82rem; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+  .sponsor-card ul li::before { content: '✓  '; color: var(--accent); }
+  .btn-sponsor { background: rgba(255,209,102,0.1); border: 1px solid rgba(255,209,102,0.3); color: var(--gold); padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.82rem; font-weight: 600; cursor: pointer; font-family: 'Syne', sans-serif; transition: background 0.2s; text-decoration: none; display: inline-block; margin-top: 0.5rem; }
+  .btn-sponsor:hover { background: rgba(255,209,102,0.2); }
+
+  .broker-section { background: #0d1a3a; border: 1px solid rgba(0,229,160,0.2); border-radius: 24px; padding: 3rem; margin: 2rem 0; position: relative; overflow: hidden; }
+  .broker-section h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem; }
+  .broker-section p { color: var(--muted); max-width: 480px; font-weight: 300; margin-bottom: 2rem; }
+  .broker-price { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
+  .broker-price-label { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+  .broker-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  footer { background: var(--navy2); border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
+  .footer-logo { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--accent); margin-bottom: 1rem; }
+  .footer-links { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; list-style: none; margin-bottom: 2rem; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-bottom { color: var(--muted); font-size: 0.8rem; }
+
+  @media(max-width: 640px) {
+    nav { padding: 1rem; }
+    .nav-links { display: none; }
+    .hero h1 { letter-spacing: -1px; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#" class="logo">B2B<span>.Marketing</span></a>
+  <ul class="nav-links">
+    <li><a href="#insights">Insights</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#sponsorship">Advertise</a></li>
+    <li><a href="#domain">Buy Domain</a></li>
+  </ul>
+  <a href="#newsletter" class="nav-cta">Join Free</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">The #1 B2B Growth Intelligence Platform</div>
+  <h1>Scale Your B2B<span class="line2">Revenue Engine</span></h1>
+  <p class="hero-sub">Data-driven strategies, tools, and insights for B2B marketers, founders, and growth teams. Cut through the noise — grow faster.</p>
+  <div class="hero-actions">
+    <a href="#newsletter" class="btn-primary">Get Free Weekly Brief</a>
+    <a href="#tools" class="btn-secondary">Explore Tools →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item"><div class="stat-num">12K+</div><div class="stat-label">Weekly Readers</div></div>
+    <div class="stat-item"><div class="stat-num">$4.2B</div><div class="stat-label">Revenue Influenced</div></div>
+    <div class="stat-item"><div class="stat-num">340+</div><div class="stat-label">Tools Reviewed</div></div>
+    <div class="stat-item"><div class="stat-num">91%</div><div class="stat-label">Open Rate vs 21% Avg</div></div>
+  </div>
+</div>
+
+<div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+  <div class="ad-strip">
+    <span class="ad-label">Sponsored</span>
+    <div class="ad-content">
+      <span class="ad-badge">NEW</span>
+      <span class="ad-text">HubSpot CRM — Now with AI-powered deal forecasting. Try free for 14 days.</span>
+    </div>
+    <a href="https://hubspot.com" class="ad-cta" target="_blank" rel="noopener">Try Free →</a>
+  </div>
+</div>
+
+<section id="insights">
+  <div class="section-tag">Insights & Strategy</div>
+  <h2 class="section-title">B2B Growth Playbooks</h2>
+  <p class="section-sub">Tactical breakdowns that drive pipeline. Every piece is built to rank, convert, and monetize.</p>
+  <div class="content-grid">
+    <a href="#" class="article-card">
+      <div class="article-img" style="background:#141c3a;">📊</div>
+      <div class="article-body">
+        <div class="article-tag">Demand Gen</div>
+        <h3>7 LinkedIn Ad Strategies That Cut CPL by 40% in 2026</h3>
+        <p>How top B2B brands are restructuring their paid social for efficiency.</p>
+      </div>
+      <div class="article-footer"><span>8 min read</span><span>2.4K views</span></div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-img" style="background:#0d1a1a;">🤖</div>
+      <div class="article-body">
+        <div class="article-tag">AI Marketing</div>
+        <h3>The AI SDR Stack: Tools Replacing 60% of Outbound Work</h3>
+        <p>Real implementations from teams doing $10M+ ARR — not theory.</p>
+      </div>
+      <div class="article-footer"><span>11 min read</span><span>5.1K views</span></div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="article-img" style="background:#1a0d25;">💰</div>
+      <div class="article-body">
+        <div class="article-tag">Revenue Ops</div>
+        <h3>CRM Benchmarks 2026: Win Rates, Deal Velocity & Pipeline Health</h3>
+        <p>Data from 1,200+ B2B companies across 14 verticals.</p>
+      </div>
+      <div class="article-footer"><span>14 min read</span><span>7.8K views</span></div>
+    </a>
+  </div>
+</section>
+
+<section id="newsletter" style="padding-top:1rem;">
+  <div class="lead-section">
+    <div class="section-tag" style="margin-bottom:0.5rem;">Free Weekly Newsletter</div>
+    <h2>The B2B Brief — Every Tuesday</h2>
+    <p>One email. The most actionable B2B marketing intel of the week. Trusted by 12,000+ founders and CMOs.</p>
+    <div class="email-form">
+      <input type="email" id="emailInput" placeholder="your@company.com" />
+      <button class="btn-primary" onclick="handleSubscribe()">Subscribe Free</button>
+    </div>
+    <div class="form-success" id="formSuccess">✓ You're in! Check your inbox for the welcome brief.</div>
+    <p style="font-size:0.75rem;color:var(--muted);margin-top:1rem;margin-bottom:0;">No spam. Unsubscribe anytime.</p>
+  </div>
+</section>
+
+<section id="tools">
+  <div class="section-tag">Affiliate Tools</div>
+  <h2 class="section-title">The B2B Marketing Stack</h2>
+  <p class="section-sub">Tools we've tested and vetted. Every link earns us a commission — fully disclosed.</p>
+  <div class="tools-grid">
+    <a href="https://apollo.io" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">📧</div>
+      <div class="tool-info"><h4>Apollo.io</h4><p>Outbound prospecting & sequencing for B2B sales teams</p><div class="tool-commission">Up to 30% recurring commission</div></div>
+    </a>
+    <a href="https://semrush.com" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">📈</div>
+      <div class="tool-info"><h4>SEMrush</h4><p>SEO, content marketing & competitive intelligence</p><div class="tool-commission">40% first-year commission</div></div>
+    </a>
+    <a href="https://hubspot.com" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">🎯</div>
+      <div class="tool-info"><h4>HubSpot CRM</h4><p>All-in-one CRM, marketing automation & sales hub</p><div class="tool-commission">$250–$1,000 per referral</div></div>
+    </a>
+    <a href="https://instantly.ai" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">🤝</div>
+      <div class="tool-info"><h4>Instantly.ai</h4><p>Cold email at scale with AI personalization</p><div class="tool-commission">25% recurring commission</div></div>
+    </a>
+    <a href="https://surferseo.com" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">🔗</div>
+      <div class="tool-info"><h4>Surfer SEO</h4><p>AI-powered content optimization for B2B blogs</p><div class="tool-commission">25% per sale</div></div>
+    </a>
+    <a href="https://gong.io" target="_blank" rel="noopener" class="tool-card">
+      <div class="tool-icon">📊</div>
+      <div class="tool-info"><h4>Gong.io</h4><p>Revenue intelligence & sales conversation analytics</p><div class="tool-commission">$500+ per enterprise referral</div></div>
+    </a>
+  </div>
+</section>
+
+<section id="sponsorship">
+  <div class="section-tag">Advertise With Us</div>
+  <h2 class="section-title">Reach B2B Decision Makers</h2>
+  <p class="section-sub">12,000+ CMOs, VPs, and founders read B2B.Marketing every week.</p>
+  <div class="sponsor-grid">
+    <div class="sponsor-card">
+      <div class="sponsor-tier">Starter</div>
+      <h4>Newsletter Mention</h4>
+      <div class="sponsor-price">$499 <span>/ issue</span></div>
+      <ul><li>One-line ad in weekly brief</li><li>Reaches 12K+ subscribers</li><li>Guaranteed placement</li><li>Click tracking report</li></ul>
+      <a href="mailto:sponsor@b2b.marketing" class="btn-sponsor">Book Slot →</a>
+    </div>
+    <div class="sponsor-card" style="border-color:rgba(255,209,102,0.3);">
+      <div class="sponsor-tier">Most Popular</div>
+      <h4>Featured Sponsor</h4>
+      <div class="sponsor-price">$1,499 <span>/ issue</span></div>
+      <ul><li>Full feature block + logo</li><li>Homepage banner 1 week</li><li>Social amplification</li><li>Dedicated send option</li></ul>
+      <a href="mailto:sponsor@b2b.marketing" class="btn-sponsor">Book Slot →</a>
+    </div>
+    <div class="sponsor-card">
+      <div class="sponsor-tier">Premium</div>
+      <h4>Exclusive Partner</h4>
+      <div class="sponsor-price">$3,999 <span>/ month</span></div>
+      <ul><li>All Featured benefits</li><li>Content collaboration</li><li>4 newsletter placements</li><li>Quarterly case study</li></ul>
+      <a href="mailto:sponsor@b2b.marketing" class="btn-sponsor">Book Now →</a>
+    </div>
+  </div>
+</section>
+
+<section id="domain" style="padding-bottom:1rem;">
+  <div class="broker-section">
+    <div class="section-tag">Premium Domain For Sale</div>
+    <h2>Own B2B.Marketing</h2>
+    <p>A category-defining premium domain. The most valuable two-word .marketing domain in B2B. Ideal for agencies, SaaS companies, and media brands.</p>
+    <div class="broker-price">$85,000</div>
+    <div class="broker-price-label">or lease from $999/month · Financing available</div>
+    <div class="broker-actions">
+      <a href="mailto:domains@b2b.marketing" class="btn-primary">Make an Offer</a>
+      <a href="mailto:domains@b2b.marketing" class="btn-secondary">Inquire About Lease</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">B2B.Marketing</div>
+  <ul class="footer-links">
+    <li><a href="#insights">Insights</a></li>
+    <li><a href="#tools">Tools & Reviews</a></li>
+    <li><a href="#sponsorship">Advertise</a></li>
+    <li><a href="#domain">Buy This Domain</a></li>
+    <li><a href="mailto:hello@b2b.marketing">Contact</a></li>
+  </ul>
+  <div class="footer-bottom">© 2026 B2B.Marketing · All rights reserved · <a href="#" style="color:var(--muted);">Privacy Policy</a></div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.background = window.scrollY > 50 ? 'rgba(10,15,46,0.98)' : 'rgba(10,15,46,0.95)';
+  });
+  function handleSubscribe() {
+    const email = document.getElementById('emailInput').value;
+    if (!email || !email.includes('@')) { document.getElementById('emailInput').style.borderColor = '#e24b4a'; return; }
+    document.getElementById('emailInput').style.borderColor = 'var(--accent)';
+    document.querySelector('.email-form').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+</body>
+</html>
